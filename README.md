@@ -263,6 +263,9 @@ But what's going on? My http://my-host:9091 isn't responding?
 This is because the VPN is active, and since docker is running in a different ip range than your client the response
 to your request will be treated as "non-local" traffic and therefore be routed out through the VPN interface.
 
+## Access the RPC
+You need to add a / to the end of the URL to be able to connect. Exapmle: http://my-host:9091/transmission/rpc/
+
 ### How to fix this
 The container supports the `LOCAL_NETWORK` environment variable. For instance if your local network uses the IP range 192.168.0.0/24 you would pass `-e LOCAL_NETWORK=192.168.0.0/24`.
 
